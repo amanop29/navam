@@ -61,44 +61,32 @@ export function Navbar() {
 
   return (
     <div className="fixed top-0 left-0 right-0 z-50 px-4 md:px-8 pt-4">
+      {/* Background gradient for visibility - green, black, and gold */}
+      <div className="absolute inset-0 pointer-events-none" style={{ height: '220px' }}>
+        <div className="absolute inset-0 bg-gradient-to-b from-black/80 via-[#0B7A75]/30 to-transparent" />
+        <div className="absolute inset-0 bg-gradient-to-b from-transparent via-[#C4A35A]/10 to-transparent" style={{ animationDelay: '0.5s' }} />
+      </div>
+      
       <motion.header
         initial={{ y: -100 }}
         animate={{ y: 0 }}
         transition={{ duration: 0.6, ease: "easeOut" }}
         className={cn(
-          "rounded-2xl border transition-all duration-500",
+          "rounded-2xl border transition-all duration-500 relative z-10",
           scrolled
-            ? "bg-[#0B7A75]/85 backdrop-blur-2xl backdrop-saturate-150 border-[#0B7A75]/35 shadow-[0_4px_30px_rgba(11,122,117,0.35)]"
-            : "bg-[#0B7A75]/75 backdrop-blur-xl backdrop-saturate-125 border-[#0B7A75]/25 shadow-[0_4px_24px_rgba(11,122,117,0.25)]"
+            ? "bg-black/40 backdrop-blur-2xl backdrop-saturate-150 border-[#0B7A75]/60 shadow-[0_4px_30px_rgba(11,122,117,0.3)]"
+            : "bg-black/25 backdrop-blur-xl backdrop-saturate-125 border-[#0B7A75]/40 shadow-[0_4px_24px_rgba(11,122,117,0.2)]"
         )}
       >
         <div className="container-luxury">
           <nav className="flex items-center justify-between h-16 lg:h-20">
             {/* Logo */}
             <Link href="/" className="flex items-center gap-2 group">
-              {settings.logo_url ? (
-                <img 
-                  src={settings.logo_url} 
-                  alt={settings.site_name || "Navam Sunil Jewellers"} 
-                  className="h-10 lg:h-12 w-auto"
-                />
-              ) : (
-                <div className="flex items-center gap-3">
-                  <div className="relative">
-                    <div className="w-8 h-8 rounded-lg bg-teal-gradient flex items-center justify-center shadow-sm">
-                      <span className="text-white font-serif font-bold text-sm">N</span>
-                    </div>
-                  </div>
-                  <div className="flex flex-col">
-                    <span className="text-xl lg:text-2xl font-serif font-bold text-white tracking-tight leading-none">
-                      {settings.site_name?.split(' ')[0] || "Navam"} {settings.site_name?.split(' ')[1] || "Sunil"}
-                    </span>
-                    <span className="text-[10px] lg:text-xs text-gold-light tracking-[0.2em] uppercase font-light">
-                      Jewellers
-                    </span>
-                  </div>
-                </div>
-              )}
+              <img 
+                src="/logo.png" 
+                alt="Navam Sunil Jewellers" 
+                className="h-20 lg:h-24 w-auto brightness-110 drop-shadow-[0_0_12px_rgba(11,122,117,0.6)] group-hover:drop-shadow-[0_0_20px_rgba(11,122,117,0.8)] transition-all duration-300"
+              />
             </Link>
 
             {/* Desktop Navigation */}
@@ -114,7 +102,7 @@ export function Navbar() {
                 >
                   <Link
                     href={item.href}
-                    className="px-4 py-2 text-sm font-medium text-white/85 hover:text-white transition-colors duration-300 flex items-center gap-1"
+                    className="px-4 py-2 text-sm font-medium text-white brightness-110 hover:text-white hover:drop-shadow-[0_0_8px_rgba(11,122,117,0.8)] transition-all duration-300 flex items-center gap-1"
                   >
                     {item.name}
                     {item.children && (
@@ -130,7 +118,7 @@ export function Navbar() {
                         animate={{ opacity: 1, y: 0 }}
                         exit={{ opacity: 0, y: 10 }}
                         transition={{ duration: 0.2 }}
-                        className="absolute top-full left-0 mt-2 w-56 bg-[#0a3d3b]/85 backdrop-blur-2xl backdrop-saturate-150 border border-[#0B7A75]/25 shadow-[0_8px_32px_rgba(11,122,117,0.25)] p-2 rounded-xl"
+                        className="absolute top-full left-0 mt-2 w-56 bg-black/50 backdrop-blur-2xl backdrop-saturate-150 border border-[#0B7A75]/50 shadow-[0_8px_32px_rgba(11,122,117,0.25)] p-2 rounded-xl"
                       >
                         {item.children.map((child) => (
                           <Link
@@ -161,7 +149,7 @@ export function Navbar() {
             {/* Mobile Menu Button */}
             <button
               onClick={() => setIsOpen(!isOpen)}
-              className="lg:hidden text-white/85 hover:text-white transition-colors p-2"
+              className="lg:hidden text-white brightness-110 hover:text-white hover:drop-shadow-[0_0_8px_rgba(11,122,117,0.8)] transition-all p-2"
             >
               {isOpen ? (
                 <X className="w-6 h-6" />
@@ -182,9 +170,9 @@ export function Navbar() {
             animate={{ opacity: 1, y: 0 }}
             exit={{ opacity: 0, y: -10 }}
             transition={{ duration: 0.3 }}
-            className="lg:hidden mt-2 mx-0 rounded-2xl border border-white/20 max-h-[calc(100vh-100px)] overflow-y-auto shadow-[0_8px_40px_rgba(11,122,117,0.3)]"
+            className="lg:hidden mt-2 mx-0 rounded-2xl border border-[#0B7A75]/50 max-h-[calc(100vh-100px)] overflow-y-auto shadow-[0_8px_40px_rgba(11,122,117,0.3)]"
             style={{
-              background: "rgba(11, 122, 117, 0.55)",
+              background: "rgba(0, 0, 0, 0.45)",
               backdropFilter: "blur(40px) saturate(1.8)",
               WebkitBackdropFilter: "blur(40px) saturate(1.8)",
             }}
@@ -196,7 +184,7 @@ export function Navbar() {
                     <div>
                       <button
                         onClick={() => toggleMobileItem(item.name)}
-                        className="w-full flex items-center justify-between px-4 py-3 text-lg font-medium text-white/90 hover:text-white transition-colors"
+                        className="w-full flex items-center justify-between px-4 py-3 text-lg font-medium text-white brightness-110 hover:text-white hover:drop-shadow-[0_0_8px_rgba(11,122,117,0.8)] transition-all"
                       >
                         <span>{item.name}</span>
                         <ChevronDown
@@ -222,7 +210,7 @@ export function Navbar() {
                                   key={child.name}
                                   href={child.href}
                                   onClick={() => setIsOpen(false)}
-                                  className="block px-4 py-2 text-sm text-white/65 hover:text-white transition-colors"
+                                  className="block px-4 py-2 text-sm text-white/80 hover:text-white hover:drop-shadow-[0_0_6px_rgba(11,122,117,0.7)] transition-all"
                                 >
                                   {child.name}
                                 </Link>
@@ -236,7 +224,7 @@ export function Navbar() {
                     <Link
                       href={item.href}
                       onClick={() => setIsOpen(false)}
-                      className="block px-4 py-3 text-lg font-medium text-white/90 hover:text-white transition-colors"
+                      className="block px-4 py-3 text-lg font-medium text-white brightness-110 hover:text-white hover:drop-shadow-[0_0_8px_rgba(11,122,117,0.8)] transition-all"
                     >
                       {item.name}
                     </Link>
@@ -250,7 +238,7 @@ export function Navbar() {
                 <Link
                   href="/appointment"
                   onClick={() => setIsOpen(false)}
-                  className="bg-white/25 backdrop-blur-md border-2 border-white/50 text-white block text-center text-sm px-6 py-3 rounded-full w-full hover:bg-white/35 shadow-[0_0_20px_rgba(255,255,255,0.3),0_0_40px_rgba(11,122,117,0.3)] transition-all duration-300"
+                  className="bg-white/25 backdrop-blur-md border-2 border-white/50 text-white block text-center text-sm px-6 py-3 rounded-full w-full hover:bg-white/35 shadow-[0_0_20px_rgba(255,255,255,0.3),0_0_40px_rgba(0,0,0,0.2)] transition-all duration-300"
                 >
                   Book Appointment
                 </Link>

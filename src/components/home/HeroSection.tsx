@@ -19,7 +19,7 @@ const fallbackBanner: Banner = {
   title: "Unleash the shining beauty within.",
   subtitle: "Heritage · Craftsmanship",
   image_url:
-    "https://images.unsplash.com/photo-1601121141461-920cb1993441?q=80&w=1999&auto=format&fit=crop&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D?w=1600&h=1200&fit=crop&q=80",
+    "https://images.unsplash.com/photo-1722410180644-5955f83ec8b1?w=900&auto=format&fit=crop&q=60&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxzZWFyY2h8NDh8fGdvbGQlMjBqZXdlbGxlcnl8ZW58MHx8MHx8fDA%3Dw=1600&h=1200&fit=crop&q=80",
   mobile_image_url: null,
   link_url: "/collections",
   link_text: "Explore Collections",
@@ -58,7 +58,7 @@ export function HeroSection() {
     : [];
 
   return (
-    <section className="relative h-[60vh] md:h-[60vh] lg:h-[70vh] overflow-visible">
+    <section className="relative h-[60vh] md:h-[60vh] lg:h-[75vh] overflow-visible">
       {/* Full-bleed background image behind navbar */}
       <div className="absolute inset-0">
         <img
@@ -68,13 +68,13 @@ export function HeroSection() {
         />
         {/* Dark overlay for text readability with green tint */}
         <div
-          className="absolute inset-0 bg-gradient-to-t from-[#0B7A75]/50 via-black/40 to-black/10"
-          style={{ opacity: banner.overlay_opacity + 0.2 }}
+          className="absolute inset-0 bg-gradient-to-t from-[#0B7A75]/30 via-black/20 to-black/5"
+          style={{ opacity: banner.overlay_opacity + 0.05 }}
         />
       </div>
 
       {/* Bottom blend — smooth gradient into page background */}
-      <div className="absolute bottom-0 left-0 right-0 h-32 bg-gradient-to-t from-background via-background/80 to-transparent z-[2]" />
+      <div className="absolute bottom-0 left-0 right-0 h-20 bg-gradient-to-t from-background via-background/70 to-transparent z-[2]" />
       {/* Teal glow at bottom edge */}
       <div className="absolute -bottom-8 left-0 right-0 h-24 z-[1]" style={{ background: "radial-gradient(ellipse 80% 100% at 50% 0%, rgba(11,122,117,0.15) 0%, transparent 70%)" }} />
 

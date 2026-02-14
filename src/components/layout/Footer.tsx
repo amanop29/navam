@@ -42,9 +42,11 @@ export function Footer() {
             {/* Brand Column */}
             <div className="space-y-6">
               <div className="flex items-center gap-2">
-                <span className="text-2xl font-serif font-bold text-primary">
-                  {settings.site_name || "Navam Sunil Jewellers"}
-                </span>
+                <img 
+                  src="/logo.png" 
+                  alt="Navam Sunil Jewellers" 
+                  className="h-24 w-auto brightness-110 drop-shadow-[0_0_16px_rgba(11,122,117,0.5)] hover:drop-shadow-[0_0_24px_rgba(11,122,117,0.7)] transition-all duration-300"
+                />
               </div>
               <p className="text-neutral-500 text-sm leading-relaxed max-w-sm">
                 {settings.site_tagline || "Crafting Heritage into Gold"}
