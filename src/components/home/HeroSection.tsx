@@ -2,6 +2,8 @@
 
 import { motion } from "framer-motion";
 import { useState, useEffect } from "react";
+import { ChevronDown, ArrowRight } from "lucide-react";
+
 
 interface Banner {
   id: string;
@@ -58,73 +60,87 @@ export function HeroSection() {
     : [];
 
   return (
-    <section className="relative h-[60vh] md:h-[60vh] lg:h-[75vh] overflow-visible">
-      {/* Full-bleed background image behind navbar */}
-      <div className="absolute inset-0">
-        <img
-          src={banner.image_url}
-          alt={banner.title}
-          className="w-full h-full object-cover transition-all duration-700"
-        />
-        {/* Dark overlay for text readability with green tint */}
-        <div
-          className="absolute inset-0 bg-gradient-to-t from-[#0B7A75]/30 via-black/20 to-black/5"
-          style={{ opacity: banner.overlay_opacity + 0.05 }}
-        />
+    <section className="relative h-[85vh] overflow-hidden rounded-b-[2.5rem] md:rounded-b-[4rem] z-0 group">
+      {/* Full-bleed background image with Ken Burns effect */}
+      <div className="absolute inset-0 bg-black">
+        <motion.div
+           initial={{ scale: 1 }}
+           animate={{ scale: 1.05 }}
+           transition={{ 
+             duration: 20, 
+             repeat: Infinity, 
+             repeatType: "reverse",
+             ease: "easeInOut"
+           }}
+           className="w-full h-full"
+        >
+          <img
+            src={banner.image_url}
+            alt={banner.title}
+            className="w-full h-full object-cover opacity-90 transition-opacity duration-1000"
+          />
+        </motion.div>
+        
+        {/* Cinematic Gradient Overlay - Top down and Bottom up */}
+        <div className="absolute inset-0 bg-gradient-to-b from-black/60 via-transparent to-black/80" />
+        
+        {/* Radial Vignette for focus */}
+        <div className="absolute inset-0 bg-[radial-gradient(transparent_0%,rgba(0,0,0,0.4)_100%)]" />
       </div>
+      
+      {/* Delicate Gold Border Line at Bottom */}
+      <div className="absolute bottom-0 left-0 right-0 h-[1px] bg-gradient-to-r from-transparent via-[#C4A35A]/60 to-transparent opacity-80" />
 
-      {/* Bottom blend — smooth gradient into page background */}
-      <div className="absolute bottom-0 left-0 right-0 h-20 bg-gradient-to-t from-background via-background/70 to-transparent z-[2]" />
-      {/* Teal glow at bottom edge */}
-      <div className="absolute -bottom-8 left-0 right-0 h-24 z-[1]" style={{ background: "radial-gradient(ellipse 80% 100% at 50% 0%, rgba(11,122,117,0.15) 0%, transparent 70%)" }} />
-
-      {/* Hero content at the bottom */}
-      <div className="container-luxury relative z-10 h-full flex flex-col justify-end pb-12 md:pb-16 lg:pb-20">
+      {/* Hero content */}
+      <div className="container-luxury relative z-10 h-full flex flex-col justify-end pb-24 md:pb-32">
         <motion.div
           key={banner.id}
           initial={mounted ? { opacity: 0, y: 30 } : false}
           animate={mounted ? { opacity: 1, y: 0 } : {}}
           transition={{ duration: 0.8, delay: 0.2 }}
-          className="space-y-6 max-w-2xl"
+          className="max-w-3xl"
         >
           {subtitleParts.length > 0 && (
-            <div className="flex items-center gap-6">
-              {subtitleParts.map((part, i) => (
-                <span key={i}>
-                  {i > 0 && <span className="text-white/30 mr-6">·</span>}
-                  <span className="text-white/70 text-xs uppercase tracking-[0.3em]">
-                    {part}
-                  </span>
-                </span>
-              ))}
+            <div className="flex items-center gap-4 mb-4">
+               <div className="h-[1px] w-12 bg-[#0B7A75]" />
+               <div className="flex items-center gap-3">
+                 {subtitleParts.map((part, i) => (
+                    <span key={i} className="text-[#C4A35A] text-xs md:text-sm font-medium uppercase tracking-[0.2em]">
+                      {part}
+                      {i < subtitleParts.length - 1 && <span className="mx-2 text-white/30">·</span>}
+                    </span>
+                 ))}
+               </div>
             </div>
           )}
-          <div>
-            <h1 className="text-4xl lg:text-5xl xl:text-6xl font-serif font-bold text-white leading-[1.1]">
-              {banner.title}
-            </h1>
+          
+          <h1 className="text-5xl md:text-6xl lg:text-7xl font-serif font-medium text-white leading-[1.1] mb-8 tracking-tight drop-shadow-2xl">
+            {banner.title}
+          </h1>
 
+          <div className="flex items-center gap-6">
+            <a
+              href={banner.link_url}
+              className="group/btn relative overflow-hidden bg-white/10 backdrop-blur-md text-white px-8 py-4 rounded-full border border-white/20 hover:bg-white hover:text-black transition-all duration-500 flex items-center gap-3"
+            >
+              <span className="text-sm font-medium tracking-wider uppercase relative z-10">{banner.link_text}</span>
+              <ArrowRight className="w-4 h-4 relative z-10 group-hover/btn:translate-x-1 transition-transform" />
+            </a>
           </div>
-          <a
-            href={banner.link_url}
-            className="inline-block bg-[#0B7A75] text-white text-sm px-8 py-3 rounded-full hover:bg-[#065E5A] shadow-[0_0_20px_rgba(11,122,117,0.4)] border border-[#0B7A75]/50 transition-all duration-300"
-          >
-            {banner.link_text}
-          </a>
         </motion.div>
       </div>
 
-      {/* Banner indicators */}
+      {/* Banner indicators - Minimal dots */}
       {banners.length > 1 && (
-        <div className="absolute bottom-6 right-8 flex gap-2 z-10">
+        <div className="absolute top-1/2 right-8 -translate-y-1/2 flex flex-col gap-4 z-20">
           {banners.map((_, i) => (
             <button
               key={i}
               onClick={() => setCurrent(i)}
-              className={`w-2.5 h-2.5 rounded-full transition-all ${
+              className={`w-1.5 h-1.5 rounded-full transition-all duration-500 ${
                 i === current
-                  ? "bg-white scale-110"
-                  : "bg-white/40 hover:bg-white/60"
+                  ? "bg-[#C4A35A] scale-150 h-6"
+                  : "bg-white/30 hover:bg-white/60"
               }`}
             />
           ))}
