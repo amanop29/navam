@@ -9,40 +9,37 @@ const config: Config = {
   theme: {
     extend: {
       colors: {
-        background: "#1A0B07",
-        foreground: "#F5E6D3",
+        background: "#FAF7F2",
+        foreground: "#2C2C2C",
         primary: {
-          DEFAULT: "#D4AF37",
-          light: "#F5D27A",
-          dark: "#B8860B",
+          DEFAULT: "#0B7A75",
+          light: "#1A9E98",
+          dark: "#065E5A",
         },
-        brown: {
-          50: "#F5E6D3",
-          100: "#E8D5C0",
-          200: "#C9A882",
-          300: "#8B6914",
-          400: "#6B4226",
-          500: "#4A1F0F",
-          600: "#3A1508",
-          700: "#2A0F06",
-          800: "#1A0B07",
-          900: "#0D0503",
-        },
-        coral: {
-          DEFAULT: "#C65D3E",
-          light: "#E8734A",
-          dark: "#A04830",
+        teal: {
+          50: "#EDFAF9",
+          100: "#D0F2F0",
+          200: "#A3E5E2",
+          300: "#5CC8C3",
+          400: "#1A9E98",
+          500: "#0B7A75",
+          600: "#065E5A",
+          700: "#044946",
+          800: "#033533",
+          900: "#022221",
         },
         gold: {
-          DEFAULT: "#D4AF37",
-          light: "#F5D27A",
-          dark: "#B8860B",
-          glow: "rgba(212,175,55,0.15)",
+          DEFAULT: "#C4A35A",
+          light: "#D4B97A",
+          dark: "#A68938",
         },
-        glass: {
-          DEFAULT: "rgba(255,255,255,0.05)",
-          border: "rgba(255,255,255,0.1)",
-          hover: "rgba(255,255,255,0.08)",
+        cream: {
+          50: "#FFFFFF",
+          100: "#FAF7F2",
+          200: "#F5F0E8",
+          300: "#EBE4D8",
+          400: "#DDD4C4",
+          500: "#C9BFAE",
         },
       },
       fontFamily: {
@@ -50,53 +47,44 @@ const config: Config = {
         sans: ["Inter", "system-ui", "sans-serif"],
       },
       fontSize: {
-        "hero": ["clamp(3rem, 6vw, 6rem)", { lineHeight: "1.05", letterSpacing: "-0.02em" }],
-        "display": ["clamp(2.5rem, 4vw, 3.5rem)", { lineHeight: "1.1", letterSpacing: "-0.01em" }],
-        "heading": ["clamp(1.75rem, 3vw, 2.5rem)", { lineHeight: "1.2" }],
+        hero: [
+          "clamp(3rem, 6vw, 5.5rem)",
+          { lineHeight: "1.05", letterSpacing: "-0.02em" },
+        ],
+        display: [
+          "clamp(2.25rem, 4vw, 3.25rem)",
+          { lineHeight: "1.15", letterSpacing: "-0.01em" },
+        ],
+        heading: ["clamp(1.75rem, 3vw, 2.5rem)", { lineHeight: "1.2" }],
       },
       backgroundImage: {
-        "gold-gradient": "linear-gradient(135deg, #D4AF37 0%, #F5D27A 50%, #B8860B 100%)",
-        "dark-gradient": "radial-gradient(circle at 30% 30%, #4A1F0F, #1A0B07)",
-        "coral-gradient": "linear-gradient(135deg, #C65D3E 0%, #E8734A 100%)",
+        "teal-gradient": "linear-gradient(135deg, #0B7A75 0%, #1A9E98 100%)",
+        "gold-gradient":
+          "linear-gradient(135deg, #C4A35A 0%, #D4B97A 50%, #A68938 100%)",
       },
       boxShadow: {
-        "gold-glow": "0 0 60px rgba(212,175,55,0.1)",
-        "gold-glow-lg": "0 0 100px rgba(212,175,55,0.15)",
-        "glass": "0 8px 32px rgba(0,0,0,0.3)",
+        soft: "0 2px 20px rgba(0,0,0,0.04)",
+        card: "0 4px 30px rgba(0,0,0,0.06)",
+        elevated: "0 8px 40px rgba(0,0,0,0.08)",
       },
       borderRadius: {
         "4xl": "2rem",
       },
       maxWidth: {
-        "container": "1400px",
+        container: "1400px",
       },
       spacing: {
-        "section": "7.5rem",
+        section: "7rem",
         "section-md": "5rem",
-        "section-sm": "3.75rem",
+        "section-sm": "3.5rem",
       },
       animation: {
-        "float": "float 6s ease-in-out infinite",
-        "shimmer": "shimmer 2s linear infinite",
-        "glow-pulse": "glow-pulse 3s ease-in-out infinite",
-        "gradient-shift": "gradient-shift 3s ease-in-out infinite",
+        float: "float 6s ease-in-out infinite",
       },
       keyframes: {
         float: {
           "0%, 100%": { transform: "translateY(0px)" },
-          "50%": { transform: "translateY(-20px)" },
-        },
-        shimmer: {
-          "0%": { backgroundPosition: "-200% 0" },
-          "100%": { backgroundPosition: "200% 0" },
-        },
-        "glow-pulse": {
-          "0%, 100%": { boxShadow: "0 0 20px rgba(212,175,55,0.1)" },
-          "50%": { boxShadow: "0 0 40px rgba(212,175,55,0.25)" },
-        },
-        "gradient-shift": {
-          "0%, 100%": { backgroundPosition: "0% 50%" },
-          "50%": { backgroundPosition: "100% 50%" },
+          "50%": { transform: "translateY(-10px)" },
         },
       },
     },

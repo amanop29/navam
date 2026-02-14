@@ -77,15 +77,15 @@ export default function BlogPage() {
     <>
       {/* Hero */}
       <section className="relative min-h-[50vh] flex items-end overflow-hidden">
-        <div className="absolute inset-0 dark-gradient-bg" />
-        <div className="absolute inset-0 silk-overlay" />
+        <div className="absolute inset-0 bg-cream-200" />
+        <div className="absolute inset-0 hidden" />
         <div className="container-luxury relative z-10 pb-20 pt-40">
           <FadeIn>
-            <p className="text-gold text-xs uppercase tracking-[0.3em] mb-4">Journal</p>
-            <h1 className="text-hero font-serif font-bold text-brown-50">
-              The Navam <em className="italic gold-text">Journal</em>
+            <p className="text-primary text-xs uppercase tracking-[0.3em] mb-4">Journal</p>
+            <h1 className="text-hero font-serif font-bold text-foreground">
+              The Navam <em className="italic text-primary">Journal</em>
             </h1>
-            <p className="mt-4 text-brown-100/60 max-w-xl">
+            <p className="mt-4 text-neutral-500 max-w-xl">
               Expert insights on gemstones, styling tips, jewellery care, and the artistry behind every creation.
             </p>
           </FadeIn>
@@ -93,13 +93,13 @@ export default function BlogPage() {
       </section>
 
       {/* Categories */}
-      <section className="py-8 border-b border-glass-border">
+      <section className="py-8 border-b border-cream-300">
         <div className="container-luxury">
           <div className="flex flex-wrap gap-3">
             {categories.map((cat) => (
               <button
                 key={cat}
-                className="text-xs uppercase tracking-wider px-4 py-2 rounded-full border border-glass-border text-brown-100/50 hover:text-gold hover:border-gold/30 transition-colors"
+                className="text-xs uppercase tracking-wider px-4 py-2 rounded-full border border-cream-300 text-neutral-500 hover:text-primary hover:border-primary/30 transition-colors"
               >
                 {cat}
               </button>
@@ -118,20 +118,20 @@ export default function BlogPage() {
                 <Link href={`/resources/blog/${post.slug}`} className="block group">
                   <GlassCard hover glow className="p-8 h-full flex flex-col">
                     <div className="flex items-center gap-3 mb-4">
-                      <span className="text-[10px] uppercase tracking-wider px-3 py-1 bg-gold/10 text-gold rounded-full border border-gold/20">
+                      <span className="text-[10px] uppercase tracking-wider px-3 py-1 bg-primary/10 text-primary rounded-full border border-primary/20">
                         {post.category}
                       </span>
-                      <span className="flex items-center gap-1 text-xs text-brown-100/30">
+                      <span className="flex items-center gap-1 text-xs text-neutral-300">
                         <Clock className="w-3 h-3" /> {post.readTime}
                       </span>
                     </div>
-                    <h3 className="text-2xl font-serif font-bold text-brown-50 group-hover:text-gold transition-colors mb-3">
+                    <h3 className="text-2xl font-serif font-bold text-foreground group-hover:text-primary transition-colors mb-3">
                       {post.title}
                     </h3>
-                    <p className="text-sm text-brown-100/50 flex-1">{post.excerpt}</p>
+                    <p className="text-sm text-neutral-500 flex-1">{post.excerpt}</p>
                     <div className="mt-6 flex items-center justify-between">
-                      <span className="text-xs text-brown-100/30">{post.date}</span>
-                      <span className="text-gold text-xs flex items-center gap-1 group-hover:gap-2 transition-all">
+                      <span className="text-xs text-neutral-300">{post.date}</span>
+                      <span className="text-primary text-xs flex items-center gap-1 group-hover:gap-2 transition-all">
                         Read Article <ArrowRight className="w-3 h-3" />
                       </span>
                     </div>
@@ -144,7 +144,7 @@ export default function BlogPage() {
       </section>
 
       {/* All Posts */}
-      <section className="section-padding bg-brown-950/30">
+      <section className="section-padding bg-cream-200">
         <div className="container-luxury">
           <SectionHeading label="All Articles" title="Recent Posts" />
           <StaggerContainer className="space-y-6 mt-12">
@@ -155,17 +155,17 @@ export default function BlogPage() {
                     <div className="flex flex-col md:flex-row md:items-center gap-4">
                       <div className="flex-1">
                         <div className="flex items-center gap-3 mb-2">
-                          <Tag className="w-3 h-3 text-gold" />
-                          <span className="text-[10px] uppercase tracking-wider text-gold">{post.category}</span>
-                          <span className="text-xs text-brown-100/30">{post.date}</span>
+                          <Tag className="w-3 h-3 text-primary" />
+                          <span className="text-[10px] uppercase tracking-wider text-primary">{post.category}</span>
+                          <span className="text-xs text-neutral-300">{post.date}</span>
                         </div>
-                        <h3 className="text-lg font-serif font-bold text-brown-50 group-hover:text-gold transition-colors">
+                        <h3 className="text-lg font-serif font-bold text-foreground group-hover:text-primary transition-colors">
                           {post.title}
                         </h3>
-                        <p className="text-sm text-brown-100/50 mt-1">{post.excerpt}</p>
+                        <p className="text-sm text-neutral-500 mt-1">{post.excerpt}</p>
                       </div>
                       <div className="flex-shrink-0">
-                        <span className="text-xs text-brown-100/30 flex items-center gap-1">
+                        <span className="text-xs text-neutral-300 flex items-center gap-1">
                           <Clock className="w-3 h-3" /> {post.readTime}
                         </span>
                       </div>

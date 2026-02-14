@@ -55,15 +55,15 @@ export default function CollectionsPage() {
     <>
       {/* Hero */}
       <section className="relative min-h-[50vh] flex items-end overflow-hidden">
-        <div className="absolute inset-0 dark-gradient-bg" />
-        <div className="absolute inset-0 silk-overlay" />
+        <div className="absolute inset-0 bg-cream-200" />
+        <div className="absolute inset-0 hidden" />
         <div className="container-luxury relative z-10 pb-20 pt-40">
           <FadeIn>
-            <p className="text-gold text-xs uppercase tracking-[0.3em] mb-4">
+            <p className="text-primary text-xs uppercase tracking-[0.3em] mb-4">
               Signature Collections
             </p>
-            <h1 className="text-hero font-serif font-bold text-brown-50">
-              Timeless <em className="italic gold-text">Collections</em>
+            <h1 className="text-hero font-serif font-bold text-foreground">
+              Timeless <em className="italic text-primary">Collections</em>
             </h1>
           </FadeIn>
         </div>
@@ -93,13 +93,13 @@ export default function CollectionsPage() {
               {/* Content */}
               <div className="space-y-8">
                 <FadeIn delay={0.2}>
-                  <p className="text-gold text-xs uppercase tracking-[0.3em]">
+                  <p className="text-primary text-xs uppercase tracking-[0.3em]">
                     {col.tagline}
                   </p>
-                  <h2 className="text-display font-serif font-bold text-brown-50 mt-2">
+                  <h2 className="text-display font-serif font-bold text-foreground mt-2">
                     {col.name}
                   </h2>
-                  <p className="text-brown-100/50 leading-relaxed mt-4">
+                  <p className="text-neutral-500 leading-relaxed mt-4">
                     {col.description}
                   </p>
                 </FadeIn>
@@ -108,8 +108,8 @@ export default function CollectionsPage() {
                 <StaggerContainer className="grid grid-cols-3 gap-4">
                   {col.featured.map((p) => (
                     <StaggerItem key={p.name}>
-                      <div className="glass-card-hover p-4 text-center space-y-3">
-                        <div className="aspect-square rounded-xl bg-gradient-to-br from-brown-500/20 to-brown-700/30 overflow-hidden">
+                      <div className="brand-card p-4 text-center space-y-3">
+                        <div className="aspect-square rounded-xl bg-gradient-to-br from-cream-300 to-cream-400 overflow-hidden">
                           <img 
                             src={p.image} 
                             alt={p.name}
@@ -117,7 +117,7 @@ export default function CollectionsPage() {
                             loading="lazy"
                           />
                         </div>
-                        <p className="text-xs text-brown-50 truncate">{p.name}</p>
+                        <p className="text-xs text-foreground truncate">{p.name}</p>
                       </div>
                     </StaggerItem>
                   ))}

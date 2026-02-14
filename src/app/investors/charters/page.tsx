@@ -24,13 +24,13 @@ export default function ChartersPage() {
   return (
     <>
       <section className="relative min-h-[50vh] flex items-end overflow-hidden">
-        <div className="absolute inset-0 dark-gradient-bg" />
-        <div className="absolute inset-0 silk-overlay" />
+        <div className="absolute inset-0 bg-cream-200" />
+        <div className="absolute inset-0 hidden" />
         <div className="container-luxury relative z-10 pb-20 pt-40">
           <FadeIn>
-            <p className="text-gold text-xs uppercase tracking-[0.3em] mb-4">Governance</p>
-            <h1 className="text-hero font-serif font-bold text-brown-50">
-              Charters & <em className="italic gold-text">Policies</em>
+            <p className="text-primary text-xs uppercase tracking-[0.3em] mb-4">Governance</p>
+            <h1 className="text-hero font-serif font-bold text-foreground">
+              Charters & <em className="italic text-primary">Policies</em>
             </h1>
           </FadeIn>
         </div>
@@ -41,12 +41,12 @@ export default function ChartersPage() {
           <StaggerContainer className="space-y-3">
             {documents.map((doc) => (
               <StaggerItem key={doc}>
-                <div className="glass-card-hover p-5 flex items-center justify-between gap-4">
+                <div className="brand-card p-5 flex items-center justify-between gap-4">
                   <div className="flex items-center gap-4">
-                    <FileText className="w-5 h-5 text-gold shrink-0" />
-                    <span className="text-sm text-brown-50">{doc}</span>
+                    <FileText className="w-5 h-5 text-primary shrink-0" />
+                    <span className="text-sm text-foreground">{doc}</span>
                   </div>
-                  <button className="flex items-center gap-2 text-xs text-gold hover:underline shrink-0">
+                  <button className="flex items-center gap-2 text-xs text-primary hover:underline shrink-0">
                     <Download className="w-4 h-4" /> PDF
                   </button>
                 </div>

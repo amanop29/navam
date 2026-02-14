@@ -67,17 +67,17 @@ export default function InvestorsPage() {
     <>
       {/* Hero */}
       <section className="relative min-h-[50vh] flex items-end overflow-hidden">
-        <div className="absolute inset-0 dark-gradient-bg" />
-        <div className="absolute inset-0 silk-overlay" />
+        <div className="absolute inset-0 bg-cream-200" />
+        <div className="absolute inset-0 hidden" />
         <div className="container-luxury relative z-10 pb-20 pt-40">
           <FadeIn>
-            <p className="text-gold text-xs uppercase tracking-[0.3em] mb-4">
+            <p className="text-primary text-xs uppercase tracking-[0.3em] mb-4">
               Corporate Governance
             </p>
-            <h1 className="text-hero font-serif font-bold text-brown-50">
-              Investor <em className="italic gold-text">Relations</em>
+            <h1 className="text-hero font-serif font-bold text-foreground">
+              Investor <em className="italic text-primary">Relations</em>
             </h1>
-            <p className="text-brown-100/50 text-lg mt-6 max-w-lg">
+            <p className="text-neutral-500 text-lg mt-6 max-w-lg">
               Transparency, trust, and accountability — the pillars of our
               corporate governance.
             </p>
@@ -86,7 +86,7 @@ export default function InvestorsPage() {
       </section>
 
       {/* Quick Stats */}
-      <section className="py-16 border-y border-white/5">
+      <section className="py-16 border-y border-cream-300">
         <div className="container-luxury">
           <div className="grid grid-cols-2 lg:grid-cols-4 gap-8">
             {[
@@ -97,10 +97,10 @@ export default function InvestorsPage() {
             ].map((stat) => (
               <FadeIn key={stat.label}>
                 <div className="text-center">
-                  <span className="text-3xl lg:text-4xl font-serif font-bold gold-text">
+                  <span className="text-3xl lg:text-4xl font-serif font-bold text-primary">
                     {stat.value}
                   </span>
-                  <p className="text-sm text-brown-100/40 mt-2">{stat.label}</p>
+                  <p className="text-sm text-neutral-400 mt-2">{stat.label}</p>
                 </div>
               </FadeIn>
             ))}
@@ -115,17 +115,17 @@ export default function InvestorsPage() {
             {sections.map((section) => (
               <StaggerItem key={section.title}>
                 <Link href={section.href} className="block group">
-                  <div className="glass-card-hover p-8 h-full space-y-4">
-                    <div className="w-14 h-14 rounded-2xl bg-gold/10 flex items-center justify-center group-hover:bg-gold/20 transition-colors">
-                      <section.icon className="w-6 h-6 text-gold" />
+                  <div className="brand-card p-8 h-full space-y-4">
+                    <div className="w-14 h-14 rounded-2xl bg-primary/10 flex items-center justify-center group-hover:bg-primary/20 transition-colors">
+                      <section.icon className="w-6 h-6 text-primary" />
                     </div>
-                    <h3 className="text-xl font-serif font-bold text-brown-50 group-hover:text-gold transition-colors">
+                    <h3 className="text-xl font-serif font-bold text-foreground group-hover:text-primary transition-colors">
                       {section.title}
                     </h3>
-                    <p className="text-sm text-brown-100/50 leading-relaxed">
+                    <p className="text-sm text-neutral-500 leading-relaxed">
                       {section.desc}
                     </p>
-                    <span className="text-xs text-gold flex items-center gap-2 group-hover:gap-3 transition-all">
+                    <span className="text-xs text-primary flex items-center gap-2 group-hover:gap-3 transition-all">
                       Explore <span>→</span>
                     </span>
                   </div>

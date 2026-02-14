@@ -26,19 +26,19 @@ export default function ProductPage({
         <div className="container-luxury">
           {/* Breadcrumb */}
           <FadeIn>
-            <div className="flex items-center gap-2 text-sm text-brown-100/40 mb-12">
-              <Link href="/collections" className="hover:text-gold transition-colors">
+            <div className="flex items-center gap-2 text-sm text-neutral-400 mb-12">
+              <Link href="/collections" className="hover:text-primary transition-colors">
                 Collections
               </Link>
               <span>/</span>
               <Link
                 href={`/collections/${params.collection}`}
-                className="hover:text-gold transition-colors"
+                className="hover:text-primary transition-colors"
               >
                 {collectionName}
               </Link>
               <span>/</span>
-              <span className="text-brown-100/60">{productName}</span>
+              <span className="text-neutral-500">{productName}</span>
             </div>
           </FadeIn>
 
@@ -46,7 +46,7 @@ export default function ProductPage({
             {/* Product Images */}
             <FadeIn>
               <div className="space-y-4">
-                <div className="aspect-square rounded-3xl overflow-hidden bg-gradient-to-br from-brown-500/20 to-brown-700/30 glass-card">
+                <div className="aspect-square rounded-3xl overflow-hidden bg-gradient-to-br from-cream-300 to-cream-400 brand-card">
                   <img 
                     src="https://images.unsplash.com/photo-1605100804763-247f67b3557e?w=800&h=800&fit=crop&q=80" 
                     alt={productName}
@@ -58,7 +58,7 @@ export default function ProductPage({
                   {[1, 2, 3, 4].map((i) => (
                     <div
                       key={i}
-                      className="aspect-square rounded-2xl bg-gradient-to-br from-brown-500/10 to-brown-700/20 glass-card overflow-hidden cursor-pointer hover:border-gold/30 transition-all"
+                      className="aspect-square rounded-2xl bg-gradient-to-br from-cream-200 to-cream-300 brand-card overflow-hidden cursor-pointer hover:border-primary/30 transition-all"
                     >
                       <img 
                         src={`https://images.unsplash.com/photo-1605100804763-247f67b3557e?w=200&h=200&fit=crop&q=80&sat=-${i * 20}`}
@@ -75,13 +75,13 @@ export default function ProductPage({
             {/* Product Info */}
             <div className="space-y-8">
               <FadeIn delay={0.2}>
-                <p className="text-gold text-xs uppercase tracking-[0.3em]">
+                <p className="text-primary text-xs uppercase tracking-[0.3em]">
                   {collectionName} Collection
                 </p>
-                <h1 className="text-display font-serif font-bold text-brown-50 mt-2">
+                <h1 className="text-display font-serif font-bold text-foreground mt-2">
                   {productName}
                 </h1>
-                <div className="flex items-center gap-4 mt-4 text-sm text-brown-100/40">
+                <div className="flex items-center gap-4 mt-4 text-sm text-neutral-400">
                   <span>22K Gold</span>
                   <span>•</span>
                   <span>18g</span>
@@ -91,7 +91,7 @@ export default function ProductPage({
               </FadeIn>
 
               <FadeIn delay={0.3}>
-                <p className="text-brown-100/50 leading-relaxed">
+                <p className="text-neutral-500 leading-relaxed">
                   This exquisite piece from the {collectionName} collection
                   showcases the pinnacle of our artisans&apos; craft. Handcrafted
                   in 22K pure gold with intricate detailing, this piece comes
@@ -101,26 +101,26 @@ export default function ProductPage({
               </FadeIn>
 
               <FadeIn delay={0.4}>
-                <div className="glass-card p-6 space-y-4">
-                  <h4 className="text-sm font-semibold text-brown-50">
+                <div className="brand-card p-6 space-y-4">
+                  <h4 className="text-sm font-semibold text-foreground">
                     Product Details
                   </h4>
                   <div className="grid grid-cols-2 gap-4 text-sm">
                     <div>
-                      <span className="text-brown-100/40">Metal</span>
-                      <p className="text-brown-50 mt-1">22K Yellow Gold</p>
+                      <span className="text-neutral-400">Metal</span>
+                      <p className="text-foreground mt-1">22K Yellow Gold</p>
                     </div>
                     <div>
-                      <span className="text-brown-100/40">Weight</span>
-                      <p className="text-brown-50 mt-1">18 grams</p>
+                      <span className="text-neutral-400">Weight</span>
+                      <p className="text-foreground mt-1">18 grams</p>
                     </div>
                     <div>
-                      <span className="text-brown-100/40">Certification</span>
-                      <p className="text-brown-50 mt-1">BIS Hallmarked</p>
+                      <span className="text-neutral-400">Certification</span>
+                      <p className="text-foreground mt-1">BIS Hallmarked</p>
                     </div>
                     <div>
-                      <span className="text-brown-100/40">Warranty</span>
-                      <p className="text-brown-50 mt-1">Lifetime</p>
+                      <span className="text-neutral-400">Warranty</span>
+                      <p className="text-foreground mt-1">Lifetime</p>
                     </div>
                   </div>
                 </div>
@@ -128,7 +128,7 @@ export default function ProductPage({
 
               <FadeIn delay={0.45}>
                 <div className="flex items-center gap-4">
-                  <button className="w-12 h-12 rounded-full border border-white/10 flex items-center justify-center text-brown-100/40 hover:text-gold hover:border-gold/30 transition-all">
+                  <button className="w-12 h-12 rounded-full border border-cream-300 flex items-center justify-center text-neutral-400 hover:text-primary hover:border-primary/30 transition-all">
                     <Share2 className="w-5 h-5" />
                   </button>
                 </div>

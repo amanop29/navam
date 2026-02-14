@@ -69,15 +69,15 @@ export default function CareersPage() {
     <>
       {/* Hero */}
       <section className="relative min-h-[50vh] flex items-end overflow-hidden">
-        <div className="absolute inset-0 dark-gradient-bg" />
-        <div className="absolute inset-0 silk-overlay" />
+        <div className="absolute inset-0 bg-cream-200" />
+        <div className="absolute inset-0 hidden" />
         <div className="container-luxury relative z-10 pb-20 pt-40">
           <FadeIn>
-            <p className="text-gold text-xs uppercase tracking-[0.3em] mb-4">Careers</p>
-            <h1 className="text-hero font-serif font-bold text-brown-50">
-              Craft Your <em className="italic gold-text">Future</em>
+            <p className="text-primary text-xs uppercase tracking-[0.3em] mb-4">Careers</p>
+            <h1 className="text-hero font-serif font-bold text-foreground">
+              Craft Your <em className="italic text-primary">Future</em>
             </h1>
-            <p className="mt-4 text-brown-100/60 max-w-xl">
+            <p className="mt-4 text-neutral-500 max-w-xl">
               Join a team where tradition meets innovation, and every day is an opportunity to create something extraordinary.
             </p>
           </FadeIn>
@@ -91,11 +91,11 @@ export default function CareersPage() {
           <div className="grid grid-cols-1 md:grid-cols-2 gap-12 mt-12">
             <FadeIn direction="left">
               <div className="space-y-4">
-                <p className="text-brown-100/60 leading-relaxed">
+                <p className="text-neutral-500 leading-relaxed">
                   At Navam Sunil Jewellers, we believe that the craft of jewellery-making is an art form — and our people are the artists. 
                   We foster an environment where heritage skills are honoured, creativity is encouraged, and professional growth is invested in.
                 </p>
-                <p className="text-brown-100/60 leading-relaxed">
+                <p className="text-neutral-500 leading-relaxed">
                   Whether you&apos;re a seasoned artisan or a fresh graduate with a passion for luxury, 
                   we offer a workplace where your contributions shape the future of Indian fine jewellery.
                 </p>
@@ -103,13 +103,13 @@ export default function CareersPage() {
             </FadeIn>
             <FadeIn direction="right">
               <GlassCard className="p-6">
-                <h3 className="text-lg font-serif font-bold text-brown-50 mb-4 flex items-center gap-2">
-                  <Heart className="w-5 h-5 text-gold" /> Benefits & Perks
+                <h3 className="text-lg font-serif font-bold text-foreground mb-4 flex items-center gap-2">
+                  <Heart className="w-5 h-5 text-primary" /> Benefits & Perks
                 </h3>
                 <ul className="space-y-3">
                   {perks.map((perk) => (
-                    <li key={perk} className="text-sm text-brown-100/50 flex items-start gap-2">
-                      <span className="w-1.5 h-1.5 rounded-full bg-gold flex-shrink-0 mt-1.5" />
+                    <li key={perk} className="text-sm text-neutral-500 flex items-start gap-2">
+                      <span className="w-1.5 h-1.5 rounded-full bg-primary flex-shrink-0 mt-1.5" />
                       {perk}
                     </li>
                   ))}
@@ -121,7 +121,7 @@ export default function CareersPage() {
       </section>
 
       {/* Open Positions */}
-      <section className="section-padding bg-brown-950/30">
+      <section className="section-padding bg-cream-200">
         <div className="container-luxury">
           <SectionHeading label="Openings" title="Current Opportunities" gold />
           <StaggerContainer className="space-y-6 mt-12">
@@ -130,9 +130,9 @@ export default function CareersPage() {
                 <GlassCard hover className="p-6">
                   <div className="flex flex-col lg:flex-row lg:items-center gap-4">
                     <div className="flex-1">
-                      <h3 className="text-lg font-serif font-bold text-brown-50">{position.title}</h3>
-                      <p className="text-sm text-brown-100/50 mt-1">{position.description}</p>
-                      <div className="flex flex-wrap gap-4 mt-3 text-xs text-brown-100/40">
+                      <h3 className="text-lg font-serif font-bold text-foreground">{position.title}</h3>
+                      <p className="text-sm text-neutral-500 mt-1">{position.description}</p>
+                      <div className="flex flex-wrap gap-4 mt-3 text-xs text-neutral-400">
                         <span className="flex items-center gap-1">
                           <Briefcase className="w-3 h-3" /> {position.department}
                         </span>
@@ -158,16 +158,16 @@ export default function CareersPage() {
       </section>
 
       {/* General Application CTA */}
-      <section className="coral-section">
+      <section className="section-padding bg-primary">
         <div className="container-luxury text-center">
           <FadeIn>
-            <h2 className="text-4xl md:text-5xl font-serif font-bold text-brown-50 mb-4">
+            <h2 className="text-4xl md:text-5xl font-serif font-bold text-foreground mb-4">
               Don&apos;t See Your Role?
             </h2>
-            <p className="text-brown-100/60 max-w-lg mx-auto mb-8">
+            <p className="text-neutral-500 max-w-lg mx-auto mb-8">
               We&apos;re always looking for exceptional talent. Send us your resume and we&apos;ll keep you in mind for future opportunities.
             </p>
-            <a href="mailto:careers@navamjewellers.com" className="gold-button inline-flex items-center gap-2 px-8 py-3">
+            <a href="mailto:careers@navamjewellers.com" className="brand-button inline-flex items-center gap-2 px-8 py-3">
               Send Your Resume
             </a>
           </FadeIn>

@@ -34,10 +34,10 @@ export function GoldButton({
 
   const variantClasses = {
     filled:
-      "bg-gold-gradient text-brown-800 font-semibold hover:shadow-gold-glow-lg",
+      "bg-primary text-white font-semibold hover:bg-primary-dark",
     outline:
-      "border border-gold/40 text-gold hover:bg-gold/10 hover:border-gold",
-    ghost: "text-gold hover:bg-gold/10",
+      "border border-primary/40 text-primary hover:bg-primary/5 hover:border-primary",
+    ghost: "text-primary hover:bg-primary/5",
   };
 
   const baseClasses = cn(
@@ -51,7 +51,7 @@ export function GoldButton({
     <>
       {children}
       {icon && (
-        <span className="w-8 h-8 rounded-full bg-brown-800/20 flex items-center justify-center">
+        <span className="w-8 h-8 rounded-full bg-primary-dark/20 flex items-center justify-center">
           <ArrowUpRight className="w-4 h-4" />
         </span>
       )}

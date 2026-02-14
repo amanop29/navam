@@ -65,15 +65,15 @@ export default function ExpertsPage() {
     <>
       {/* Hero */}
       <section className="relative min-h-[50vh] flex items-end overflow-hidden">
-        <div className="absolute inset-0 dark-gradient-bg" />
-        <div className="absolute inset-0 silk-overlay" />
+        <div className="absolute inset-0 bg-cream-200" />
+        <div className="absolute inset-0 hidden" />
         <div className="container-luxury relative z-10 pb-20 pt-40">
           <FadeIn>
-            <p className="text-gold text-xs uppercase tracking-[0.3em] mb-4">Craftsmanship</p>
-            <h1 className="text-hero font-serif font-bold text-brown-50">
-              Meet Our <em className="italic gold-text">Experts</em>
+            <p className="text-primary text-xs uppercase tracking-[0.3em] mb-4">Craftsmanship</p>
+            <h1 className="text-hero font-serif font-bold text-foreground">
+              Meet Our <em className="italic text-primary">Experts</em>
             </h1>
-            <p className="mt-4 text-brown-100/60 max-w-xl">
+            <p className="mt-4 text-neutral-500 max-w-xl">
               Behind every masterpiece is a master. Meet the artisans, gemologists, and designers who bring Navam creations to life.
             </p>
           </FadeIn>
@@ -88,19 +88,19 @@ export default function ExpertsPage() {
               <StaggerItem key={expert.name}>
                 <GlassCard hover glow className="p-8 h-full flex flex-col">
                   {/* Icon Avatar */}
-                  <div className="w-16 h-16 rounded-full bg-gold/10 border border-gold/20 flex items-center justify-center mb-6">
-                    <expert.icon className="w-8 h-8 text-gold" />
+                  <div className="w-16 h-16 rounded-full bg-primary/10 border border-primary/20 flex items-center justify-center mb-6">
+                    <expert.icon className="w-8 h-8 text-primary" />
                   </div>
                   {/* Info */}
-                  <h3 className="text-xl font-serif font-bold text-brown-50">{expert.name}</h3>
-                  <p className="text-gold text-xs uppercase tracking-wider mt-1">{expert.role}</p>
-                  <p className="text-sm text-brown-100/50 mt-4 flex-1">{expert.description}</p>
+                  <h3 className="text-xl font-serif font-bold text-foreground">{expert.name}</h3>
+                  <p className="text-primary text-xs uppercase tracking-wider mt-1">{expert.role}</p>
+                  <p className="text-sm text-neutral-500 mt-4 flex-1">{expert.description}</p>
                   {/* Tags */}
-                  <div className="mt-6 pt-4 border-t border-glass-border flex items-center justify-between">
-                    <span className="text-[10px] uppercase tracking-wider px-3 py-1 bg-gold/10 text-gold rounded-full border border-gold/20">
+                  <div className="mt-6 pt-4 border-t border-cream-300 flex items-center justify-between">
+                    <span className="text-[10px] uppercase tracking-wider px-3 py-1 bg-primary/10 text-primary rounded-full border border-primary/20">
                       {expert.speciality}
                     </span>
-                    <span className="text-xs text-brown-100/30">{expert.experience}</span>
+                    <span className="text-xs text-neutral-300">{expert.experience}</span>
                   </div>
                 </GlassCard>
               </StaggerItem>
@@ -110,17 +110,17 @@ export default function ExpertsPage() {
       </section>
 
       {/* CTA */}
-      <section className="coral-section">
+      <section className="section-padding bg-primary">
         <div className="container-luxury text-center">
           <FadeIn>
-            <h2 className="text-4xl md:text-5xl font-serif font-bold text-brown-50 mb-4">
+            <h2 className="text-4xl md:text-5xl font-serif font-bold text-foreground mb-4">
               Book a Consultation
             </h2>
-            <p className="text-brown-100/60 max-w-lg mx-auto mb-8">
+            <p className="text-neutral-500 max-w-lg mx-auto mb-8">
               Schedule a one-on-one session with any of our experts for personalised guidance on your jewellery journey.
             </p>
             <div className="flex gap-4 justify-center">
-              <a href="/appointment" className="gold-button inline-flex items-center gap-2 px-8 py-3">
+              <a href="/appointment" className="brand-button inline-flex items-center gap-2 px-8 py-3">
                 Book Appointment
               </a>
             </div>

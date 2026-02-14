@@ -5,6 +5,7 @@ import Link from "next/link";
 import { motion, AnimatePresence } from "framer-motion";
 import { Menu, X, ChevronDown } from "lucide-react";
 import { cn } from "@/lib/utils";
+import { useSettings } from "@/lib/settings-context";
 
 const navigation = [
   { name: "Home", href: "/" },
@@ -38,6 +39,7 @@ const navigation = [
 ];
 
 export function Navbar() {
+  const settings = useSettings();
   const [isOpen, setIsOpen] = useState(false);
   const [scrolled, setScrolled] = useState(false);
   const [activeDropdown, setActiveDropdown] = useState<string | null>(null);
@@ -50,9 +52,9 @@ export function Navbar() {
   }, []);
 
   const toggleMobileItem = (itemName: string) => {
-    setExpandedMobileItems(prev =>
+    setExpandedMobileItems((prev) =>
       prev.includes(itemName)
-        ? prev.filter(name => name !== itemName)
+        ? prev.filter((name) => name !== itemName)
         : [...prev, itemName]
     );
   };
@@ -64,30 +66,39 @@ export function Navbar() {
         animate={{ y: 0 }}
         transition={{ duration: 0.6, ease: "easeOut" }}
         className={cn(
-          "rounded-[1.5rem] backdrop-blur-3xl border border-white/20 transition-all duration-500",
+          "rounded-2xl border transition-all duration-500",
           scrolled
-            ? "bg-brown-800/70 shadow-2xl shadow-black/40"
-            : "bg-brown-800/50 shadow-xl shadow-black/20"
+            ? "bg-[#0B7A75]/85 backdrop-blur-2xl backdrop-saturate-150 border-[#0B7A75]/35 shadow-[0_4px_30px_rgba(11,122,117,0.35)]"
+            : "bg-[#0B7A75]/75 backdrop-blur-xl backdrop-saturate-125 border-[#0B7A75]/25 shadow-[0_4px_24px_rgba(11,122,117,0.25)]"
         )}
       >
         <div className="container-luxury">
           <nav className="flex items-center justify-between h-16 lg:h-20">
             {/* Logo */}
             <Link href="/" className="flex items-center gap-2 group">
-              <div className="flex items-center gap-3">
-                <div className="relative">
-                  <div className="w-8 h-8 rotate-45 bg-gradient-to-br from-gold via-yellow-600 to-gold rounded-sm shadow-lg shadow-gold/50 group-hover:shadow-gold/70 transition-all duration-300"></div>
-                  <div className="absolute inset-0 w-8 h-8 rotate-45 bg-gradient-to-tl from-transparent via-white/30 to-transparent rounded-sm"></div>
+              {settings.logo_url ? (
+                <img 
+                  src={settings.logo_url} 
+                  alt={settings.site_name || "Navam Sunil Jewellers"} 
+                  className="h-10 lg:h-12 w-auto"
+                />
+              ) : (
+                <div className="flex items-center gap-3">
+                  <div className="relative">
+                    <div className="w-8 h-8 rounded-lg bg-teal-gradient flex items-center justify-center shadow-sm">
+                      <span className="text-white font-serif font-bold text-sm">N</span>
+                    </div>
+                  </div>
+                  <div className="flex flex-col">
+                    <span className="text-xl lg:text-2xl font-serif font-bold text-white tracking-tight leading-none">
+                      {settings.site_name?.split(' ')[0] || "Navam"} {settings.site_name?.split(' ')[1] || "Sunil"}
+                    </span>
+                    <span className="text-[10px] lg:text-xs text-gold-light tracking-[0.2em] uppercase font-light">
+                      Jewellers
+                    </span>
+                  </div>
                 </div>
-                <div className="flex flex-col">
-                  <span className="text-xl lg:text-2xl font-serif font-bold italic gold-text tracking-tight leading-none">
-                    Navam Sunil
-                  </span>
-                  <span className="text-[10px] lg:text-xs text-brown-100/60 tracking-[0.2em] uppercase font-light">
-                    Jewellers
-                  </span>
-                </div>
-              </div>
+              )}
             </Link>
 
             {/* Desktop Navigation */}
@@ -96,14 +107,14 @@ export function Navbar() {
                 <div
                   key={item.name}
                   className="relative"
-                  onMouseEnter={() => item.children && setActiveDropdown(item.name)}
+                  onMouseEnter={() =>
+                    item.children && setActiveDropdown(item.name)
+                  }
                   onMouseLeave={() => setActiveDropdown(null)}
                 >
                   <Link
                     href={item.href}
-                    className={cn(
-                      "px-4 py-2 text-sm font-medium text-brown-100/80 hover:text-gold transition-colors duration-300 flex items-center gap-1"
-                    )}
+                    className="px-4 py-2 text-sm font-medium text-white/85 hover:text-white transition-colors duration-300 flex items-center gap-1"
                   >
                     {item.name}
                     {item.children && (
@@ -119,13 +130,13 @@ export function Navbar() {
                         animate={{ opacity: 1, y: 0 }}
                         exit={{ opacity: 0, y: 10 }}
                         transition={{ duration: 0.2 }}
-                        className="absolute top-full left-0 mt-2 w-56 backdrop-blur-xl bg-brown-800/80 border border-white/20 shadow-2xl shadow-black/50 p-2 rounded-2xl ring-1 ring-white/10"
+                        className="absolute top-full left-0 mt-2 w-56 bg-[#0a3d3b]/85 backdrop-blur-2xl backdrop-saturate-150 border border-[#0B7A75]/25 shadow-[0_8px_32px_rgba(11,122,117,0.25)] p-2 rounded-xl"
                       >
                         {item.children.map((child) => (
                           <Link
                             key={child.name}
                             href={child.href}
-                            className="block px-4 py-2.5 text-sm text-brown-100/80 hover:text-gold hover:bg-white/10 rounded-xl transition-all duration-200"
+                            className="block px-4 py-2.5 text-sm text-white/75 hover:text-white hover:bg-white/10 rounded-lg transition-all duration-200"
                           >
                             {child.name}
                           </Link>
@@ -141,7 +152,7 @@ export function Navbar() {
             <div className="hidden lg:flex items-center gap-4">
               <Link
                 href="/appointment"
-                className="gold-button text-sm px-6 py-2.5 rounded-full"
+                className="bg-white text-[#0B7A75] font-semibold text-sm px-6 py-2.5 rounded-full hover:bg-white/90 shadow-[0_0_20px_rgba(255,255,255,0.5),0_0_40px_rgba(11,122,117,0.4)] border border-white/80 transition-all duration-300"
               >
                 Book Appointment
               </Link>
@@ -150,93 +161,104 @@ export function Navbar() {
             {/* Mobile Menu Button */}
             <button
               onClick={() => setIsOpen(!isOpen)}
-              className="lg:hidden text-brown-100/80 hover:text-gold transition-colors p-2"
+              className="lg:hidden text-white/85 hover:text-white transition-colors p-2"
             >
-              {isOpen ? <X className="w-6 h-6" /> : <Menu className="w-6 h-6" />}
+              {isOpen ? (
+                <X className="w-6 h-6" />
+              ) : (
+                <Menu className="w-6 h-6" />
+              )}
             </button>
           </nav>
         </div>
 
-        {/* Mobile Menu */}
-        <AnimatePresence>
-          {isOpen && (
-            <motion.div
-              initial={{ opacity: 0, height: 0 }}
-              animate={{ opacity: 1, height: "auto" }}
-              exit={{ opacity: 0, height: 0 }}
-              transition={{ duration: 0.3 }}
-              className="lg:hidden border-t border-white/5 max-h-[calc(100vh-120px)] overflow-y-auto scrollbar-thin scrollbar-thumb-gold/20 scrollbar-track-transparent"
-            >
-              <div className="container-luxury py-6 space-y-0 pb-20">
-                {navigation.map((item, index) => (
-                  <div key={item.name}>
-                    {item.children ? (
-                      <div>
-                        <button
-                          onClick={() => toggleMobileItem(item.name)}
-                          className="w-full flex items-center justify-between px-4 py-3 text-lg font-medium text-brown-100/80 hover:text-gold transition-colors"
-                        >
-                          <span>{item.name}</span>
-                          <ChevronDown
-                            className={cn(
-                              "w-4 h-4 transition-transform duration-300",
-                              expandedMobileItems.includes(item.name) && "rotate-180"
-                            )}
-                          />
-                        </button>
-                        <AnimatePresence>
-                          {expandedMobileItems.includes(item.name) && (
-                            <motion.div
-                              initial={{ height: 0, opacity: 0 }}
-                              animate={{ height: "auto", opacity: 1 }}
-                              exit={{ height: 0, opacity: 0 }}
-                              transition={{ duration: 0.2 }}
-                              className="overflow-hidden"
-                            >
-                              <div className="pl-8 space-y-1 pb-2">
-                                {item.children.map((child) => (
-                                  <Link
-                                    key={child.name}
-                                    href={child.href}
-                                    onClick={() => setIsOpen(false)}
-                                    className="block px-4 py-2 text-sm text-brown-100/50 hover:text-gold transition-colors"
-                                  >
-                                    {child.name}
-                                  </Link>
-                                ))}
-                              </div>
-                            </motion.div>
-                          )}
-                        </AnimatePresence>
-                      </div>
-                    ) : (
-                      <Link
-                        href={item.href}
-                        onClick={() => setIsOpen(false)}
-                        className="block px-4 py-3 text-lg font-medium text-brown-100/80 hover:text-gold transition-colors"
-                      >
-                        {item.name}
-                      </Link>
-                    )}
-                    {index < navigation.length - 1 && (
-                      <div className="mx-4 my-1 border-t border-white/5" />
-                    )}
-                  </div>
-                ))}
-                <div className="pt-4 px-4">
-                  <Link
-                    href="/appointment"
-                    onClick={() => setIsOpen(false)}
-                    className="gold-button block text-center text-sm px-6 py-3 rounded-full w-full"
-                  >
-                    Book Appointment
-                  </Link>
-                </div>
-              </div>
-            </motion.div>
-          )}
-        </AnimatePresence>
       </motion.header>
+
+      {/* Mobile Menu — outside header so backdrop-blur works against page content */}
+      <AnimatePresence>
+        {isOpen && (
+          <motion.div
+            initial={{ opacity: 0, y: -10 }}
+            animate={{ opacity: 1, y: 0 }}
+            exit={{ opacity: 0, y: -10 }}
+            transition={{ duration: 0.3 }}
+            className="lg:hidden mt-2 mx-0 rounded-2xl border border-white/20 max-h-[calc(100vh-100px)] overflow-y-auto shadow-[0_8px_40px_rgba(11,122,117,0.3)]"
+            style={{
+              background: "rgba(11, 122, 117, 0.55)",
+              backdropFilter: "blur(40px) saturate(1.8)",
+              WebkitBackdropFilter: "blur(40px) saturate(1.8)",
+            }}
+          >
+            <div className="px-5 md:px-8 py-6 space-y-0 pb-8">
+              {navigation.map((item, index) => (
+                <div key={item.name}>
+                  {item.children ? (
+                    <div>
+                      <button
+                        onClick={() => toggleMobileItem(item.name)}
+                        className="w-full flex items-center justify-between px-4 py-3 text-lg font-medium text-white/90 hover:text-white transition-colors"
+                      >
+                        <span>{item.name}</span>
+                        <ChevronDown
+                          className={cn(
+                            "w-4 h-4 transition-transform duration-300",
+                            expandedMobileItems.includes(item.name) &&
+                              "rotate-180"
+                          )}
+                        />
+                      </button>
+                      <AnimatePresence>
+                        {expandedMobileItems.includes(item.name) && (
+                          <motion.div
+                            initial={{ height: 0, opacity: 0 }}
+                            animate={{ height: "auto", opacity: 1 }}
+                            exit={{ height: 0, opacity: 0 }}
+                            transition={{ duration: 0.2 }}
+                            className="overflow-hidden"
+                          >
+                            <div className="pl-8 space-y-1 pb-2">
+                              {item.children.map((child) => (
+                                <Link
+                                  key={child.name}
+                                  href={child.href}
+                                  onClick={() => setIsOpen(false)}
+                                  className="block px-4 py-2 text-sm text-white/65 hover:text-white transition-colors"
+                                >
+                                  {child.name}
+                                </Link>
+                              ))}
+                            </div>
+                          </motion.div>
+                        )}
+                      </AnimatePresence>
+                    </div>
+                  ) : (
+                    <Link
+                      href={item.href}
+                      onClick={() => setIsOpen(false)}
+                      className="block px-4 py-3 text-lg font-medium text-white/90 hover:text-white transition-colors"
+                    >
+                      {item.name}
+                    </Link>
+                  )}
+                  {index < navigation.length - 1 && (
+                    <div className="mx-4 my-1 border-t border-white/15" />
+                  )}
+                </div>
+              ))}
+              <div className="pt-4 px-4">
+                <Link
+                  href="/appointment"
+                  onClick={() => setIsOpen(false)}
+                  className="bg-white/25 backdrop-blur-md border-2 border-white/50 text-white block text-center text-sm px-6 py-3 rounded-full w-full hover:bg-white/35 shadow-[0_0_20px_rgba(255,255,255,0.3),0_0_40px_rgba(11,122,117,0.3)] transition-all duration-300"
+                >
+                  Book Appointment
+                </Link>
+              </div>
+            </div>
+          </motion.div>
+        )}
+      </AnimatePresence>
     </div>
   );
 }

@@ -18,17 +18,15 @@
   }
 
   body {
-    background: #1A0B07;
-    color: #F5E6D3;
+    background: #FAF7F2;
+    color: #2C2C2C;
     font-family: 'Inter', system-ui, sans-serif;
     overflow-x: hidden;
-    transition: background-color 0.8s cubic-bezier(0.4, 0, 0.2, 1),
-                color 0.5s ease-in-out;
   }
 
   ::selection {
-    background: rgba(212, 175, 55, 0.3);
-    color: #F5D27A;
+    background: rgba(11, 122, 117, 0.15);
+    color: #065E5A;
   }
 
   ::-webkit-scrollbar {
@@ -36,46 +34,43 @@
   }
 
   ::-webkit-scrollbar-track {
-    background: #1A0B07;
+    background: #FAF7F2;
   }
 
   ::-webkit-scrollbar-thumb {
-    background: linear-gradient(180deg, #D4AF37, #B8860B);
+    background: #0B7A75;
     border-radius: 3px;
   }
 }
 
 @layer components {
-  .glass-card {
-    @apply backdrop-blur-xl bg-white/5 border border-white/10 rounded-3xl shadow-glass;
-    transition: all 0.5s cubic-bezier(0.4, 0, 0.2, 1);
+  .brand-card {
+    @apply bg-white border border-cream-300 rounded-2xl shadow-soft;
+    transition: all 0.3s ease;
   }
 
-  .glass-card-hover {
-    @apply glass-card transition-all duration-500 hover:bg-white/[0.08] hover:border-white/20 hover:shadow-gold-glow;
+  .brand-card:hover {
+    @apply shadow-card border-cream-400;
   }
 
-  .gold-text {
-    @apply bg-gradient-to-r from-gold via-gold-light to-gold-dark bg-clip-text text-transparent;
-    transition: all 0.4s ease-in-out;
+  .teal-text {
+    @apply text-primary;
   }
 
-  .gold-text-shimmer {
-    @apply bg-gradient-to-r from-gold via-gold-light to-gold-dark bg-clip-text text-transparent;
-    background-size: 200% auto;
-    animation: shimmer 3s linear infinite;
+  .gold-accent {
+    @apply text-gold;
   }
 
-  .gold-button {
-    @apply bg-gold-gradient text-brown-800 font-semibold rounded-full px-8 py-3
-           transition-all duration-300 hover:scale-105 hover:shadow-gold-glow-lg
+  .brand-button {
+    @apply bg-primary text-white font-medium rounded-full px-8 py-3
+           transition-all duration-300 hover:bg-primary-dark
            active:scale-95;
   }
 
-  .gold-button-outline {
-    @apply border border-gold/40 text-gold rounded-full px-8 py-3
-           transition-all duration-300 hover:bg-gold/10 hover:border-gold
-           hover:shadow-gold-glow active:scale-95;
+  .brand-button-outline {
+    @apply border border-primary/40 text-primary rounded-full px-8 py-3
+           transition-all duration-300 hover:bg-primary/5 hover:border-primary
+           active:scale-95;
   }
 
   .section-padding {
@@ -89,70 +84,6 @@
   .heading-serif {
     @apply font-serif font-bold tracking-tight;
   }
-
-  .silk-overlay {
-    background: radial-gradient(ellipse at 50% 0%, rgba(212, 175, 55, 0.06) 0%, transparent 60%);
-    transition: opacity 0.6s ease-in-out;
-  }
-
-  .dark-gradient-bg {
-    background: radial-gradient(circle at 30% 30%, #4A1F0F, #1A0B07);
-    transition: background 0.8s cubic-bezier(0.4, 0, 0.2, 1);
-  }
-
-  .coral-section {
-    background: linear-gradient(135deg, #C65D3E 0%, #E8734A 100%);
-  }
-
-  /* Smooth color blending utilities */
-  .blend-colors {
-    transition: background-color 0.6s cubic-bezier(0.4, 0, 0.2, 1),
-                background-image 0.6s cubic-bezier(0.4, 0, 0.2, 1),
-                color 0.4s ease-in-out;
-  }
-
-  .blend-smooth {
-    transition: all 0.8s cubic-bezier(0.25, 0.46, 0.45, 0.94);
-  }
-}
-
-@layer utilities {
-  .text-balance {
-    text-wrap: balance;
-  }
-
-  /* Smooth gradient transitions */
-  .gradient-animate {
-    background-size: 200% 200%;
-    animation: gradient-shift 3s ease-in-out infinite;
-  }
-
-  /* Color blend modes */
-  .blend-multiply {
-    mix-blend-mode: multiply;
-  }
-
-  .blend-overlay {
-    mix-blend-mode: overlay;
-  }
-}
-
-:root {
-  --background: #ffffff;
-  --foreground: #171717;
-}
-
-@media (prefers-color-scheme: dark) {
-  :root {
-    --background: #0a0a0a;
-    --foreground: #ededed;
-  }
-}
-
-body {
-  color: var(--foreground);
-  background: var(--background);
-  font-family: Arial, Helvetica, sans-serif;
 }
 
 @layer utilities {

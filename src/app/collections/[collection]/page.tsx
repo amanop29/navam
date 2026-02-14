@@ -75,8 +75,8 @@ export default function CollectionPage({ params }: { params: { collection: strin
     <>
       {/* Hero */}
       <section className="relative min-h-[80vh] flex items-center overflow-hidden pt-24 md:pt-0">
-        <div className="absolute inset-0 dark-gradient-bg" />
-        <div className="absolute inset-0 silk-overlay" />
+        <div className="absolute inset-0 bg-cream-200" />
+        <div className="absolute inset-0 hidden" />
         <div className="container-luxury relative z-10 pt-8 pb-20 md:pt-20 lg:py-32">
           <div className="grid grid-cols-1 lg:grid-cols-2 gap-12 lg:gap-16 items-center">
             {/* Image */}
@@ -94,16 +94,16 @@ export default function CollectionPage({ params }: { params: { collection: strin
             {/* Text Content */}
             <FadeIn direction="right" delay={0.2}>
               <div className="space-y-6">
-                <p className="text-gold text-xs uppercase tracking-[0.3em]">
+                <p className="text-primary text-xs uppercase tracking-[0.3em]">
                   {col.tagline}
                 </p>
-                <h1 className="text-5xl lg:text-6xl xl:text-7xl font-serif font-bold text-brown-50">
+                <h1 className="text-5xl lg:text-6xl xl:text-7xl font-serif font-bold text-foreground">
                   {col.name}
                 </h1>
-                <p className="text-brown-100/60 text-base lg:text-lg leading-relaxed">
+                <p className="text-neutral-500 text-base lg:text-lg leading-relaxed">
                   {col.description}
                 </p>
-                <p className="text-brown-100/50 text-sm lg:text-base leading-relaxed">
+                <p className="text-neutral-500 text-sm lg:text-base leading-relaxed">
                   {col.story}
                 </p>
               </div>
@@ -116,10 +116,10 @@ export default function CollectionPage({ params }: { params: { collection: strin
       <section className="py-16 md:py-20 lg:py-24">
         <div className="container-luxury">
           <FadeIn>
-            <h2 className="text-display font-serif font-bold text-brown-50 mb-4">
+            <h2 className="text-display font-serif font-bold text-foreground mb-4">
               The Collection
             </h2>
-            <p className="text-brown-100/50 mb-12">
+            <p className="text-neutral-500 mb-12">
               {col.products.length} exquisite pieces
             </p>
           </FadeIn>
@@ -131,8 +131,8 @@ export default function CollectionPage({ params }: { params: { collection: strin
                   href={`/collections/${params.collection}/${product.slug}`}
                   className="group block"
                 >
-                  <div className="glass-card-hover overflow-hidden">
-                    <div className="relative aspect-square rounded-2xl bg-gradient-to-br from-brown-500/20 to-brown-700/30 overflow-hidden group-hover:from-gold/5 group-hover:to-brown-700/30 transition-all duration-500">
+                  <div className="brand-card overflow-hidden">
+                    <div className="relative aspect-square rounded-2xl bg-gradient-to-br from-cream-300 to-cream-400 overflow-hidden group-hover:from-primary/5 group-hover:to-cream-400 transition-all duration-500">
                       <img 
                         src={product.image} 
                         alt={product.name}
@@ -140,12 +140,12 @@ export default function CollectionPage({ params }: { params: { collection: strin
                         loading="lazy"
                       />
                       {/* Text Overlay */}
-                      <div className="absolute inset-0 bg-gradient-to-t from-black/90 via-black/40 to-transparent transition-all duration-300">
+                      <div className="absolute inset-0 bg-gradient-to-t from-black/80 via-black/30 to-transparent transition-all duration-300">
                         <div className="absolute bottom-0 left-0 right-0 p-6 space-y-2">
-                          <h3 className="text-lg font-serif font-bold text-brown-50">
+                          <h3 className="text-lg font-serif font-bold text-white">
                             {product.name}
                           </h3>
-                          <div className="flex items-center gap-3 text-xs text-brown-100/60">
+                          <div className="flex items-center gap-3 text-xs text-white/80">
                             <span>{product.weight}</span>
                             <span>•</span>
                             <span>{product.purity}</span>

@@ -50,15 +50,15 @@ export default function CSRPage() {
   return (
     <>
       <section className="relative min-h-[50vh] flex items-end overflow-hidden">
-        <div className="absolute inset-0 dark-gradient-bg" />
-        <div className="absolute inset-0 silk-overlay" />
+        <div className="absolute inset-0 bg-cream-200" />
+        <div className="absolute inset-0 hidden" />
         <div className="container-luxury relative z-10 pb-20 pt-40">
           <FadeIn>
-            <p className="text-gold text-xs uppercase tracking-[0.3em] mb-4">Social Responsibility</p>
-            <h1 className="text-hero font-serif font-bold text-brown-50">
-              Giving <em className="italic gold-text">Back</em>
+            <p className="text-primary text-xs uppercase tracking-[0.3em] mb-4">Social Responsibility</p>
+            <h1 className="text-hero font-serif font-bold text-foreground">
+              Giving <em className="italic text-primary">Back</em>
             </h1>
-            <p className="text-brown-100/50 text-lg mt-6 max-w-lg">
+            <p className="text-neutral-500 text-lg mt-6 max-w-lg">
               Our commitment extends beyond gold — we invest in communities, heritage, and a sustainable future.
             </p>
           </FadeIn>
@@ -79,10 +79,10 @@ export default function CSRPage() {
                       loading="lazy"
                     />
                   </div>
-                  <h3 className="text-xl font-serif font-bold text-brown-50">{item.title}</h3>
-                  <p className="text-sm text-brown-100/50 leading-relaxed">{item.desc}</p>
-                  <div className="pt-4 border-t border-white/5">
-                    <span className="text-sm text-gold font-medium">{item.impact}</span>
+                  <h3 className="text-xl font-serif font-bold text-foreground">{item.title}</h3>
+                  <p className="text-sm text-neutral-500 leading-relaxed">{item.desc}</p>
+                  <div className="pt-4 border-t border-cream-300">
+                    <span className="text-sm text-primary font-medium">{item.impact}</span>
                   </div>
                 </GlassCard>
               </StaggerItem>

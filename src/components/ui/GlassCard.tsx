@@ -20,9 +20,9 @@ export function GlassCard({
   return (
     <motion.div
       className={cn(
-        "backdrop-blur-xl bg-white/5 border border-white/10 rounded-3xl",
-        hover && "transition-all duration-500 hover:bg-white/[0.08] hover:border-white/20",
-        glow && "shadow-gold-glow hover:shadow-gold-glow-lg",
+        "bg-white border border-cream-300 rounded-2xl shadow-soft",
+        hover && "transition-all duration-300 hover:shadow-card hover:border-cream-400",
+        glow && "hover:shadow-elevated",
         className
       )}
       {...props}

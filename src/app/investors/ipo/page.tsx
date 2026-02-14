@@ -11,13 +11,13 @@ export default function IPOPage() {
   return (
     <>
       <section className="relative min-h-[50vh] flex items-end overflow-hidden">
-        <div className="absolute inset-0 dark-gradient-bg" />
-        <div className="absolute inset-0 silk-overlay" />
+        <div className="absolute inset-0 bg-cream-200" />
+        <div className="absolute inset-0 hidden" />
         <div className="container-luxury relative z-10 pb-20 pt-40">
           <FadeIn>
-            <p className="text-gold text-xs uppercase tracking-[0.3em] mb-4">Public Offering</p>
-            <h1 className="text-hero font-serif font-bold text-brown-50">
-              IPO <em className="italic gold-text">Information</em>
+            <p className="text-primary text-xs uppercase tracking-[0.3em] mb-4">Public Offering</p>
+            <h1 className="text-hero font-serif font-bold text-foreground">
+              IPO <em className="italic text-primary">Information</em>
             </h1>
           </FadeIn>
         </div>
@@ -36,8 +36,8 @@ export default function IPOPage() {
             ].map((item) => (
               <FadeIn key={item.label}>
                 <GlassCard hover className="p-6 text-center">
-                  <p className="text-sm text-brown-100/40 uppercase tracking-wider">{item.label}</p>
-                  <p className="text-2xl font-serif font-bold gold-text mt-2">{item.value}</p>
+                  <p className="text-sm text-neutral-400 uppercase tracking-wider">{item.label}</p>
+                  <p className="text-2xl font-serif font-bold text-primary mt-2">{item.value}</p>
                 </GlassCard>
               </FadeIn>
             ))}
@@ -45,7 +45,7 @@ export default function IPOPage() {
 
           <FadeIn>
             <GlassCard className="p-8 space-y-4">
-              <h3 className="text-xl font-serif font-bold text-brown-50">IPO Documents</h3>
+              <h3 className="text-xl font-serif font-bold text-foreground">IPO Documents</h3>
               <div className="space-y-3">
                 {[
                   "Draft Red Herring Prospectus (DRHP)",
@@ -54,9 +54,9 @@ export default function IPOPage() {
                   "Allotment Status",
                   "Basis of Allotment",
                 ].map((doc) => (
-                  <div key={doc} className="flex items-center justify-between py-3 border-b border-white/5 last:border-0">
-                    <span className="text-sm text-brown-100/60">{doc}</span>
-                    <button className="text-xs text-gold hover:underline">Download PDF →</button>
+                  <div key={doc} className="flex items-center justify-between py-3 border-b border-cream-300 last:border-0">
+                    <span className="text-sm text-neutral-500">{doc}</span>
+                    <button className="text-xs text-primary hover:underline">Download PDF →</button>
                   </div>
                 ))}
               </div>

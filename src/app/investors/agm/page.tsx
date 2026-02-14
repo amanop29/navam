@@ -19,13 +19,13 @@ export default function AGMPage() {
   return (
     <>
       <section className="relative min-h-[50vh] flex items-end overflow-hidden">
-        <div className="absolute inset-0 dark-gradient-bg" />
-        <div className="absolute inset-0 silk-overlay" />
+        <div className="absolute inset-0 bg-cream-200" />
+        <div className="absolute inset-0 hidden" />
         <div className="container-luxury relative z-10 pb-20 pt-40">
           <FadeIn>
-            <p className="text-gold text-xs uppercase tracking-[0.3em] mb-4">Corporate Meetings</p>
-            <h1 className="text-hero font-serif font-bold text-brown-50">
-              AGM <em className="italic gold-text">Notices</em>
+            <p className="text-primary text-xs uppercase tracking-[0.3em] mb-4">Corporate Meetings</p>
+            <h1 className="text-hero font-serif font-bold text-foreground">
+              AGM <em className="italic text-primary">Notices</em>
             </h1>
           </FadeIn>
         </div>
@@ -36,21 +36,21 @@ export default function AGMPage() {
           <StaggerContainer className="space-y-4">
             {agmDocs.map((doc) => (
               <StaggerItem key={doc.title}>
-                <div className="glass-card-hover p-6 flex flex-col md:flex-row items-start md:items-center justify-between gap-4">
+                <div className="brand-card p-6 flex flex-col md:flex-row items-start md:items-center justify-between gap-4">
                   <div className="flex items-center gap-4">
-                    <div className="w-12 h-12 rounded-xl bg-gold/10 flex items-center justify-center shrink-0">
-                      <FileText className="w-5 h-5 text-gold" />
+                    <div className="w-12 h-12 rounded-xl bg-primary/10 flex items-center justify-center shrink-0">
+                      <FileText className="w-5 h-5 text-primary" />
                     </div>
                     <div>
-                      <h3 className="text-lg font-serif font-bold text-brown-50">{doc.title}</h3>
-                      <p className="text-sm text-brown-100/40 mt-1">{doc.date} • {doc.size}</p>
+                      <h3 className="text-lg font-serif font-bold text-foreground">{doc.title}</h3>
+                      <p className="text-sm text-neutral-400 mt-1">{doc.date} • {doc.size}</p>
                     </div>
                   </div>
                   <div className="flex items-center gap-3">
-                    <button className="flex items-center gap-2 px-4 py-2 rounded-full border border-white/10 text-sm text-brown-100/60 hover:text-gold hover:border-gold/30 transition-all">
+                    <button className="flex items-center gap-2 px-4 py-2 rounded-full border border-cream-300 text-sm text-neutral-500 hover:text-primary hover:border-primary/30 transition-all">
                       <Eye className="w-4 h-4" /> View
                     </button>
-                    <button className="flex items-center gap-2 px-4 py-2 rounded-full bg-gold/10 text-sm text-gold hover:bg-gold/20 transition-all">
+                    <button className="flex items-center gap-2 px-4 py-2 rounded-full bg-primary/10 text-sm text-primary hover:bg-primary/20 transition-all">
                       <Download className="w-4 h-4" /> Download
                     </button>
                   </div>

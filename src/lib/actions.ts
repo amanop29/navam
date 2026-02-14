@@ -171,3 +171,68 @@ export async function getNewsArticles(limit = 10) {
     return { success: false, data: [] };
   }
 }
+
+// ────────────────────────────────────
+// Fetch Homepage Banners
+// ────────────────────────────────────
+export async function getHomepageBanners() {
+  try {
+    const { data, error } = await supabase
+      .from("homepage_banners")
+      .select("*")
+      .eq("is_active", true)
+      .order("sort_order", { ascending: true });
+
+    if (error) throw error;
+    return { success: true, data: data || [] };
+  } catch (err) {
+    console.error("Fetch banners error:", err);
+    return { success: false, data: [] };
+  }
+}
+
+// ────────────────────────────────────
+// Fetch Site Settings
+// ────────────────────────────────────
+export async function getSiteSettings() {
+  try {
+    const { data, error } = await supabase
+      .from("site_settings")
+      .select("key, value, type");
+
+    if (error) throw error;
+
+    const settings: Record<string, string> = {};
+    (data || []).forEach((s: { key: string; value: string | null }) => {
+      settings[s.key] = s.value || "";
+    });
+
+    return { success: true, data: settings };
+  } catch (err) {
+    console.error("Fetch settings error:", err);
+    return { success: false, data: {} };
+  }
+}
+
+// ────────────────────────────────────
+// Fetch Investor Documents
+// ────────────────────────────────────
+export async function getInvestorDocuments(category?: string) {
+  try {
+    let query = supabase
+      .from("investor_documents")
+      .select("*")
+      .eq("is_active", true)
+      .order("sort_order", { ascending: true });
+
+    if (category) query = query.eq("category", category);
+
+    const { data, error } = await query;
+
+    if (error) throw error;
+    return { success: true, data: data || [] };
+  } catch (err) {
+    console.error("Fetch investor docs error:", err);
+    return { success: false, data: [] };
+  }
+}

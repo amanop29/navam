@@ -13,13 +13,13 @@ export default function CommunityPage() {
   return (
     <>
       <section className="relative min-h-[50vh] flex items-end overflow-hidden">
-        <div className="absolute inset-0 dark-gradient-bg" />
-        <div className="absolute inset-0 silk-overlay" />
+        <div className="absolute inset-0 bg-cream-200" />
+        <div className="absolute inset-0 hidden" />
         <div className="container-luxury relative z-10 pb-20 pt-40">
           <FadeIn>
-            <p className="text-gold text-xs uppercase tracking-[0.3em] mb-4">Join Us</p>
-            <h1 className="text-hero font-serif font-bold text-brown-50">
-              Our <em className="italic gold-text">Community</em>
+            <p className="text-primary text-xs uppercase tracking-[0.3em] mb-4">Join Us</p>
+            <h1 className="text-hero font-serif font-bold text-foreground">
+              Our <em className="italic text-primary">Community</em>
             </h1>
           </FadeIn>
         </div>
@@ -31,11 +31,11 @@ export default function CommunityPage() {
             <StaggerItem>
               <Link href="/community/join" className="block group">
                 <GlassCard hover glow className="p-8 h-full space-y-4 text-center">
-                  <Users className="w-12 h-12 text-gold mx-auto" />
-                  <h3 className="text-xl font-serif font-bold text-brown-50 group-hover:text-gold transition-colors">
+                  <Users className="w-12 h-12 text-primary mx-auto" />
+                  <h3 className="text-xl font-serif font-bold text-foreground group-hover:text-primary transition-colors">
                     Join the Circle
                   </h3>
-                  <p className="text-sm text-brown-100/50">
+                  <p className="text-sm text-neutral-500">
                     Become a member for exclusive previews, first access to new collections, and VIP event invitations.
                   </p>
                 </GlassCard>
@@ -44,11 +44,11 @@ export default function CommunityPage() {
             <StaggerItem>
               <Link href="/community/events" className="block group">
                 <GlassCard hover glow className="p-8 h-full space-y-4 text-center">
-                  <Calendar className="w-12 h-12 text-gold mx-auto" />
-                  <h3 className="text-xl font-serif font-bold text-brown-50 group-hover:text-gold transition-colors">
+                  <Calendar className="w-12 h-12 text-primary mx-auto" />
+                  <h3 className="text-xl font-serif font-bold text-foreground group-hover:text-primary transition-colors">
                     Events
                   </h3>
-                  <p className="text-sm text-brown-100/50">
+                  <p className="text-sm text-neutral-500">
                     Trunk shows, collection launches, and intimate jewellery appreciation evenings.
                   </p>
                 </GlassCard>
@@ -57,11 +57,11 @@ export default function CommunityPage() {
             <StaggerItem>
               <Link href="/community/experts" className="block group">
                 <GlassCard hover glow className="p-8 h-full space-y-4 text-center">
-                  <Award className="w-12 h-12 text-gold mx-auto" />
-                  <h3 className="text-xl font-serif font-bold text-brown-50 group-hover:text-gold transition-colors">
+                  <Award className="w-12 h-12 text-primary mx-auto" />
+                  <h3 className="text-xl font-serif font-bold text-foreground group-hover:text-primary transition-colors">
                     Meet Our Experts
                   </h3>
-                  <p className="text-sm text-brown-100/50">
+                  <p className="text-sm text-neutral-500">
                     Connect with our master artisans, gemologists, and design consultants.
                   </p>
                 </GlassCard>

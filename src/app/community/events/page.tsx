@@ -69,15 +69,15 @@ export default function EventsPage() {
     <>
       {/* Hero */}
       <section className="relative min-h-[50vh] flex items-end overflow-hidden">
-        <div className="absolute inset-0 dark-gradient-bg" />
-        <div className="absolute inset-0 silk-overlay" />
+        <div className="absolute inset-0 bg-cream-200" />
+        <div className="absolute inset-0 hidden" />
         <div className="container-luxury relative z-10 pb-20 pt-40">
           <FadeIn>
-            <p className="text-gold text-xs uppercase tracking-[0.3em] mb-4">Calendar</p>
-            <h1 className="text-hero font-serif font-bold text-brown-50">
-              Upcoming <em className="italic gold-text">Events</em>
+            <p className="text-primary text-xs uppercase tracking-[0.3em] mb-4">Calendar</p>
+            <h1 className="text-hero font-serif font-bold text-foreground">
+              Upcoming <em className="italic text-primary">Events</em>
             </h1>
-            <p className="mt-4 text-brown-100/60 max-w-xl">
+            <p className="mt-4 text-neutral-500 max-w-xl">
               Immerse yourself in the world of fine jewellery through exclusive experiences, workshops, and showcases.
             </p>
           </FadeIn>
@@ -94,27 +94,27 @@ export default function EventsPage() {
                 <GlassCard hover className="p-8">
                   <div className="flex flex-col lg:flex-row lg:items-start gap-8">
                     {/* Date Badge */}
-                    <div className="flex-shrink-0 w-24 h-24 rounded-xl bg-gold/10 border border-gold/20 flex flex-col items-center justify-center">
-                      <span className="text-2xl font-serif font-bold gold-text">
+                    <div className="flex-shrink-0 w-24 h-24 rounded-xl bg-primary/10 border border-primary/20 flex flex-col items-center justify-center">
+                      <span className="text-2xl font-serif font-bold text-primary">
                         {event.date.split(" ")[1]?.replace(",", "")}
                       </span>
-                      <span className="text-xs uppercase tracking-wider text-gold/70">
+                      <span className="text-xs uppercase tracking-wider text-primary/70">
                         {event.date.split(" ")[0]}
                       </span>
                     </div>
                     {/* Details */}
                     <div className="flex-1 space-y-3">
                       <div className="flex items-center gap-3 flex-wrap">
-                        <span className="text-[10px] uppercase tracking-wider px-3 py-1 bg-gold/10 text-gold rounded-full border border-gold/20">
+                        <span className="text-[10px] uppercase tracking-wider px-3 py-1 bg-primary/10 text-primary rounded-full border border-primary/20">
                           {event.type}
                         </span>
-                        <span className="text-xs text-brown-100/40 flex items-center gap-1">
+                        <span className="text-xs text-neutral-400 flex items-center gap-1">
                           <Users className="w-3 h-3" /> {event.spots} spots
                         </span>
                       </div>
-                      <h3 className="text-xl font-serif font-bold text-brown-50">{event.title}</h3>
-                      <p className="text-sm text-brown-100/50">{event.description}</p>
-                      <div className="flex flex-wrap gap-4 text-xs text-brown-100/40">
+                      <h3 className="text-xl font-serif font-bold text-foreground">{event.title}</h3>
+                      <p className="text-sm text-neutral-500">{event.description}</p>
+                      <div className="flex flex-wrap gap-4 text-xs text-neutral-400">
                         <span className="flex items-center gap-1"><Calendar className="w-3 h-3" /> {event.date}</span>
                         <span className="flex items-center gap-1"><Clock className="w-3 h-3" /> {event.time}</span>
                         <span className="flex items-center gap-1"><MapPin className="w-3 h-3" /> {event.venue}</span>
@@ -132,17 +132,17 @@ export default function EventsPage() {
       </section>
 
       {/* Past Events */}
-      <section className="section-padding bg-brown-950/30">
+      <section className="section-padding bg-cream-200">
         <div className="container-luxury">
           <SectionHeading label="Archive" title="Past Events" />
           <StaggerContainer className="grid grid-cols-1 md:grid-cols-2 gap-6 mt-12">
             {pastEvents.map((event) => (
               <StaggerItem key={event.title}>
                 <GlassCard className="p-6 opacity-80">
-                  <p className="text-gold text-xs uppercase tracking-wider mb-2">{event.date}</p>
-                  <h3 className="text-lg font-serif font-bold text-brown-50 mb-2">{event.title}</h3>
-                  <p className="text-sm text-brown-100/50 mb-2">{event.description}</p>
-                  <p className="text-xs text-brown-100/30 flex items-center gap-1">
+                  <p className="text-primary text-xs uppercase tracking-wider mb-2">{event.date}</p>
+                  <h3 className="text-lg font-serif font-bold text-foreground mb-2">{event.title}</h3>
+                  <p className="text-sm text-neutral-500 mb-2">{event.description}</p>
+                  <p className="text-xs text-neutral-300 flex items-center gap-1">
                     <MapPin className="w-3 h-3" /> {event.venue}
                   </p>
                 </GlassCard>

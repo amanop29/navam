@@ -82,15 +82,15 @@ export default function DocsPage() {
     <>
       {/* Hero */}
       <section className="relative min-h-[50vh] flex items-end overflow-hidden">
-        <div className="absolute inset-0 dark-gradient-bg" />
-        <div className="absolute inset-0 silk-overlay" />
+        <div className="absolute inset-0 bg-cream-200" />
+        <div className="absolute inset-0 hidden" />
         <div className="container-luxury relative z-10 pb-20 pt-40">
           <FadeIn>
-            <p className="text-gold text-xs uppercase tracking-[0.3em] mb-4">Resources</p>
-            <h1 className="text-hero font-serif font-bold text-brown-50">
-              Documentation & <em className="italic gold-text">Guides</em>
+            <p className="text-primary text-xs uppercase tracking-[0.3em] mb-4">Resources</p>
+            <h1 className="text-hero font-serif font-bold text-foreground">
+              Documentation & <em className="italic text-primary">Guides</em>
             </h1>
-            <p className="mt-4 text-brown-100/60 max-w-xl">
+            <p className="mt-4 text-neutral-500 max-w-xl">
               Everything you need — from care guides to brand assets and certification information.
             </p>
           </FadeIn>
@@ -106,19 +106,19 @@ export default function DocsPage() {
               <StaggerItem key={doc.title}>
                 <GlassCard hover className="p-6 h-full flex flex-col group cursor-pointer">
                   <div className="flex items-start gap-4 mb-4">
-                    <div className="w-12 h-12 rounded-lg bg-gold/10 border border-gold/20 flex items-center justify-center flex-shrink-0">
-                      <doc.icon className="w-6 h-6 text-gold" />
+                    <div className="w-12 h-12 rounded-lg bg-primary/10 border border-primary/20 flex items-center justify-center flex-shrink-0">
+                      <doc.icon className="w-6 h-6 text-primary" />
                     </div>
                     <div className="flex-1">
-                      <h3 className="text-base font-serif font-bold text-brown-50 group-hover:text-gold transition-colors">
+                      <h3 className="text-base font-serif font-bold text-foreground group-hover:text-primary transition-colors">
                         {doc.title}
                       </h3>
-                      <p className="text-xs text-brown-100/30 mt-1">{doc.format} · {doc.size}</p>
+                      <p className="text-xs text-neutral-300 mt-1">{doc.format} · {doc.size}</p>
                     </div>
                   </div>
-                  <p className="text-sm text-brown-100/50 flex-1">{doc.description}</p>
-                  <div className="mt-4 pt-4 border-t border-glass-border">
-                    <span className="text-gold text-xs flex items-center gap-1 group-hover:gap-2 transition-all">
+                  <p className="text-sm text-neutral-500 flex-1">{doc.description}</p>
+                  <div className="mt-4 pt-4 border-t border-cream-300">
+                    <span className="text-primary text-xs flex items-center gap-1 group-hover:gap-2 transition-all">
                       <Download className="w-3 h-3" /> Download
                     </span>
                   </div>
@@ -130,7 +130,7 @@ export default function DocsPage() {
       </section>
 
       {/* FAQ */}
-      <section className="section-padding bg-brown-950/30">
+      <section className="section-padding bg-cream-200">
         <div className="container-luxury max-w-3xl">
           <SectionHeading label="FAQ" title="Frequently Asked Questions" gold />
           <StaggerContainer className="space-y-4 mt-12">
@@ -138,10 +138,10 @@ export default function DocsPage() {
               <StaggerItem key={faq.question}>
                 <GlassCard className="p-6">
                   <div className="flex gap-4">
-                    <HelpCircle className="w-5 h-5 text-gold flex-shrink-0 mt-0.5" />
+                    <HelpCircle className="w-5 h-5 text-primary flex-shrink-0 mt-0.5" />
                     <div>
-                      <h3 className="text-base font-serif font-bold text-brown-50">{faq.question}</h3>
-                      <p className="text-sm text-brown-100/50 mt-2">{faq.answer}</p>
+                      <h3 className="text-base font-serif font-bold text-foreground">{faq.question}</h3>
+                      <p className="text-sm text-neutral-500 mt-2">{faq.answer}</p>
                     </div>
                   </div>
                 </GlassCard>
