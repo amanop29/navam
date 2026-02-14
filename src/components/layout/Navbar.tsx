@@ -5,7 +5,6 @@ import Link from "next/link";
 import { motion, AnimatePresence } from "framer-motion";
 import { Menu, X, ChevronDown } from "lucide-react";
 import { cn } from "@/lib/utils";
-import { useSettings } from "@/lib/settings-context";
 
 const navigation = [
   { name: "Home", href: "/" },
@@ -39,7 +38,6 @@ const navigation = [
 ];
 
 export function Navbar() {
-  const settings = useSettings();
   const [isOpen, setIsOpen] = useState(false);
   const [scrolled, setScrolled] = useState(false);
   const [activeDropdown, setActiveDropdown] = useState<string | null>(null);
